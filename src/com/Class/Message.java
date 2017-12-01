@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.Frame;
+package com.Class;
 
 import com.alee.managers.notification.NotificationIcon;
 import com.alee.managers.notification.NotificationManager;
