@@ -13,7 +13,7 @@ Content -:
   9. User Managment
   10. Service Recieved 
   11. Service Release
-  12.Strock 
+  12. Stock 
   13. Reports
       -Daily Sales Report
       -Month Sales Report 
