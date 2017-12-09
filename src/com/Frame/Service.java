@@ -9,6 +9,8 @@ import com.Controller.ServiceJpaController;
 import com.Entity.Customer;
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
+import java.util.List;
+import java.util.Vector;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.swing.JButton;
@@ -542,6 +544,11 @@ public class Service extends javax.swing.JFrame {
                 service.setItem(item_name.getText());
                 service.setItem(item_description.getText());
                 ServiceJpaController.create(service);
+                customer_id.setText("");
+                Serieal_no.setText("");
+                equry_id.setText("");
+                item_name.setText("");
+                item_description.setText("");
             } catch (Exception e) {
             }
 
@@ -565,7 +572,32 @@ public class Service extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
     void setDataToTable() {
         DefaultTableModel dtm = new DefaultTableModel();
+        Vector collums = new Vector();
+        collums.add("ID");
+        collums.add("Customer ID");
+        collums.add("Serial NO");
+        collums.add("Item");
+        collums.add("Description");
+        collums.add("Status");
+        collums.add("Recived Date");
+        collums.add("Released Date");
+        dtm.setColumnIdentifiers(collums);
 
+        List<com.Entity.Service> findServiceEntities = ServiceJpaController.findServiceEntities();
+        for (com.Entity.Service findServiceEntity : findServiceEntities) {
+            if (findServiceEntity.getStatus()) {
+                Vector vector = new Vector();
+                vector.add(findServiceEntity.getId());
+                vector.add(findServiceEntity.getCustomerid());
+                vector.add(findServiceEntity.getImei());
+                vector.add(findServiceEntity.getItem());
+                vector.add(findServiceEntity.getDesc());
+                vector.add(findServiceEntity.getSituation());
+                vector.add(findServiceEntity.getReciveDate());
+                vector.add(findServiceEntity.getReleaseDate());
+                dtm.addRow(vector);
+            }
+        }
     }
 
     public Service(EntityManagerFactory factory, JTextField Serieal_no, JTextField customer_id, JTextField enqury_id, JTextField enqury_itemname, JTextField equry_id, JTextArea item_description, JTextField item_name, JButton jButton1, JButton jButton15, JButton jButton16, JButton jButton2, JButton jButton3, JButton jButton4, JButton jButton5, JButton jButton6, JButton jButton7, JLabel jLabel1, JLabel jLabel2, JLabel jLabel20, JLabel jLabel21, JLabel jLabel22, JLabel jLabel23, JLabel jLabel3, JLabel jLabel4, JLabel jLabel5, JLabel jLabel6, JLabel jLabel8, JPanel jPanel1, JPanel jPanel2, JPanel jPanel3, JPanel jPanel6, JScrollPane jScrollPane1, JSeparator jSeparator1, JTabbedPane jTabbedPane1, JTable jTable1, JTable jTable2, JTextField serial_no, JTextField service_description, JTextField service_type) throws HeadlessException {
