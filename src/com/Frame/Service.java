@@ -5,13 +5,33 @@
  */
 package com.Frame;
 
+import com.Controller.ServiceJpaController;
+import com.Entity.Customer;
 import java.awt.GridLayout;
+import java.awt.HeadlessException;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import sun.security.smartcardio.SunPCSC;
 
 /**
  *
  * @author Ish
  */
 public class Service extends javax.swing.JFrame {
+
+    EntityManager factory;
+    ServiceJpaController ServiceJpaController = new com.Controller.ServiceJpaController(factory.getEntityManagerFactory());
 
     /**
      * Creates new form Service
@@ -34,36 +54,36 @@ public class Service extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel6 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
-        jTextField16 = new javax.swing.JTextField();
+        equry_id = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        jTextField17 = new javax.swing.JTextField();
+        Serieal_no = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        jTextField18 = new javax.swing.JTextField();
+        item_name = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        item_description = new javax.swing.JTextArea();
         jLabel23 = new javax.swing.JLabel();
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        customer_id = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        enqury_id = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        serial_no = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        enqury_itemname = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jTable1 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        service_type = new javax.swing.JTextField();
+        service_description = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jTable2 = new javax.swing.JTable();
@@ -84,28 +104,28 @@ public class Service extends javax.swing.JFrame {
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel20.setText("ID ");
 
-        jTextField16.setEditable(false);
-        jTextField16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField16.addActionListener(new java.awt.event.ActionListener() {
+        equry_id.setEditable(false);
+        equry_id.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        equry_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField16ActionPerformed(evt);
+                equry_idActionPerformed(evt);
             }
         });
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel21.setText("EMI / Serieal No :");
 
-        jTextField17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Serieal_no.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel22.setText("Item Name :");
 
-        jTextField18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        item_name.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        item_description.setColumns(20);
+        item_description.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        item_description.setRows(5);
+        jScrollPane1.setViewportView(item_description);
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel23.setText("Description :");
@@ -137,12 +157,12 @@ public class Service extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Customer ");
 
-        jTextField4.setEditable(false);
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField4.setText("Select Customer");
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        customer_id.setEditable(false);
+        customer_id.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        customer_id.setText("Select Customer");
+        customer_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                customer_idActionPerformed(evt);
             }
         });
 
@@ -178,9 +198,9 @@ public class Service extends javax.swing.JFrame {
                                     .addGap(235, 235, 235))
                                 .addGroup(jPanel6Layout.createSequentialGroup()
                                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jTextField16)
+                                        .addComponent(equry_id)
                                         .addGroup(jPanel6Layout.createSequentialGroup()
-                                            .addComponent(jTextField4)
+                                            .addComponent(customer_id)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(jButton4)))
                                     .addGap(54, 54, 54)))
@@ -190,9 +210,9 @@ public class Service extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel21)
                             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextField17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                                .addComponent(Serieal_no, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
                                 .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField18, javax.swing.GroupLayout.Alignment.LEADING)))))
+                                .addComponent(item_name, javax.swing.GroupLayout.Alignment.LEADING)))))
                 .addContainerGap(123, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -203,21 +223,21 @@ public class Service extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(customer_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel20)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(equry_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel21)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Serieal_no, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel22)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(item_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(22, 22, 22)
                 .addComponent(jLabel23)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -238,22 +258,22 @@ public class Service extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("ID :");
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        enqury_id.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        enqury_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                enqury_idActionPerformed(evt);
             }
         });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("EMI :");
+        jLabel3.setText("EMI/Serial No :");
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        serial_no.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Item Name :");
 
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        enqury_itemname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton1.setText("Search");
@@ -291,11 +311,11 @@ public class Service extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel4)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(enqury_id)
+                            .addComponent(enqury_itemname, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(35, 35, 35)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(serial_no, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton1))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -322,13 +342,13 @@ public class Service extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(enqury_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(serial_no, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(enqury_itemname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -359,14 +379,14 @@ public class Service extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setText("Type :");
 
-        jTextField5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        service_type.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        service_type.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                service_typeActionPerformed(evt);
             }
         });
 
-        jTextField7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        service_description.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setText("Descrition :");
@@ -427,9 +447,9 @@ public class Service extends javax.swing.JFrame {
                     .addGap(26, 26, 26)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(service_type, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(35, 35, 35)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(service_description, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(245, 245, 245))
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addComponent(jLabel6)
@@ -455,8 +475,8 @@ public class Service extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(service_type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(service_description, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap(361, Short.MAX_VALUE)))
         );
 
@@ -488,44 +508,108 @@ public class Service extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void customer_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customer_idActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_customer_idActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
-     
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        // TODO add your handling code here:
+        customer_id.setText("");
+        Serieal_no.setText("");
+        equry_id.setText("");
+        item_name.setText("");
+        item_description.setText("");
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        // TODO add your handling code here:
+        boolean validation = (equry_id.getText() == null) & (Serieal_no.getText() == null) & !(customer_id.getText() == null) & (item_name.getText() == null) & (item_description.getText() == null);
+        validation = !("".equals(customer_id.getText())) & ("".equals(Serieal_no.getText())) & ("".equals(equry_id.getText())) & ("".equals(item_name.getText())) & ("".equals(item_description.getText()));
+        if (validation) {
+
+            try {
+                com.Entity.Service service = new com.Entity.Service();
+                service.setCustomerid(new Customer());
+                service.setId(WIDTH);
+                service.setImei(Serieal_no.getText());
+                service.setItem(item_name.getText());
+                service.setItem(item_description.getText());
+                ServiceJpaController.create(service);
+            } catch (Exception e) {
+            }
+
+        }
     }//GEN-LAST:event_jButton15ActionPerformed
 
-    private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
+    private void equry_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equry_idActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField16ActionPerformed
+    }//GEN-LAST:event_equry_idActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void enqury_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enqury_idActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_enqury_idActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void service_typeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_service_typeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_service_typeActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
+    void setDataToTable() {
+        DefaultTableModel dtm = new DefaultTableModel();
+
+    }
+
+    public Service(EntityManagerFactory factory, JTextField Serieal_no, JTextField customer_id, JTextField enqury_id, JTextField enqury_itemname, JTextField equry_id, JTextArea item_description, JTextField item_name, JButton jButton1, JButton jButton15, JButton jButton16, JButton jButton2, JButton jButton3, JButton jButton4, JButton jButton5, JButton jButton6, JButton jButton7, JLabel jLabel1, JLabel jLabel2, JLabel jLabel20, JLabel jLabel21, JLabel jLabel22, JLabel jLabel23, JLabel jLabel3, JLabel jLabel4, JLabel jLabel5, JLabel jLabel6, JLabel jLabel8, JPanel jPanel1, JPanel jPanel2, JPanel jPanel3, JPanel jPanel6, JScrollPane jScrollPane1, JSeparator jSeparator1, JTabbedPane jTabbedPane1, JTable jTable1, JTable jTable2, JTextField serial_no, JTextField service_description, JTextField service_type) throws HeadlessException {
+
+        this.Serieal_no = Serieal_no;
+        this.customer_id = customer_id;
+        this.enqury_id = enqury_id;
+        this.enqury_itemname = enqury_itemname;
+        this.equry_id = equry_id;
+        this.item_description = item_description;
+        this.item_name = item_name;
+        this.jButton1 = jButton1;
+        this.jButton15 = jButton15;
+        this.jButton16 = jButton16;
+        this.jButton2 = jButton2;
+        this.jButton3 = jButton3;
+        this.jButton4 = jButton4;
+        this.jButton5 = jButton5;
+        this.jButton6 = jButton6;
+        this.jButton7 = jButton7;
+        this.jLabel1 = jLabel1;
+        this.jLabel2 = jLabel2;
+        this.jLabel20 = jLabel20;
+        this.jLabel21 = jLabel21;
+        this.jLabel22 = jLabel22;
+        this.jLabel23 = jLabel23;
+        this.jLabel3 = jLabel3;
+        this.jLabel4 = jLabel4;
+        this.jLabel5 = jLabel5;
+        this.jLabel6 = jLabel6;
+        this.jLabel8 = jLabel8;
+        this.jPanel1 = jPanel1;
+        this.jPanel2 = jPanel2;
+        this.jPanel3 = jPanel3;
+        this.jPanel6 = jPanel6;
+        this.jScrollPane1 = jScrollPane1;
+        this.jSeparator1 = jSeparator1;
+        this.jTabbedPane1 = jTabbedPane1;
+        this.jTable1 = jTable1;
+        this.jTable2 = jTable2;
+        this.serial_no = serial_no;
+        this.service_description = service_description;
+        this.service_type = service_type;
+    }
 
     /**
      * @param args the command line arguments
@@ -563,6 +647,13 @@ public class Service extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Serieal_no;
+    private javax.swing.JTextField customer_id;
+    private javax.swing.JTextField enqury_id;
+    private javax.swing.JTextField enqury_itemname;
+    private javax.swing.JTextField equry_id;
+    private javax.swing.JTextArea item_description;
+    private javax.swing.JTextField item_name;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
@@ -592,15 +683,8 @@ public class Service extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField serial_no;
+    private javax.swing.JTextField service_description;
+    private javax.swing.JTextField service_type;
     // End of variables declaration//GEN-END:variables
 }
